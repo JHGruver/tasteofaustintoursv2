@@ -434,3 +434,9 @@ html.intro-go .intro-mark i{animation:markLine 1s cubic-bezier(.6,0,.2,1) both}
   .proof{margin-top:24px}
   .stack{height:min(470px,62svh)}
 }
+
+/* departure times */
+.meta .times{flex:1 1 100%;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px}
+.meta .times b{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-right:2px}
+.meta .times time{padding:5px 12px;border-radius:999px;font-weight:600;font-size:.85rem;color:#fff;background:rgba(32,132,84,.4);border:1px solid rgba(95,195,149,.55)}
+@media(hover:hover){.meta .times time{transition:background .25s,transform .25s}.meta .times time:hover{background:var(--primary);transform:translateY(-2px)}}
