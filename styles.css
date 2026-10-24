@@ -502,7 +502,7 @@ html.intro-go .intro-mark i{animation:markLine 1s cubic-bezier(.6,0,.2,1) both}
 @media(max-width:560px){.exp-tabs{grid-template-columns:1fr}.formcard{padding:10px}#book-frame{height:1500px}}
 
 /* ---------- booking takeover ---------- */
-body.takeover{--tk-bg:#403f2b;background:var(--tk-bg);transition:background .4s}
+body.takeover{--tk-bg:#208454;background:var(--tk-bg);transition:background .4s}
 body.takeover .nav{position:fixed}
 .tk-main{min-height:100svh;display:flex;flex-direction:column;padding-top:92px}
 .tk-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:8px 16px 14px;position:relative;z-index:2}
