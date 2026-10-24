@@ -525,3 +525,18 @@ body.takeover .nav{position:fixed}
 [data-wix="pending"]{display:none!important}
 .event-grid.two-up{grid-template-columns:repeat(2,1fr);max-width:860px;margin-inline:auto}
 @media(max-width:640px){.event-grid.two-up{grid-template-columns:1fr}}
+
+/* inquiry summary on the contact form */
+.inq-sum{display:grid;gap:6px;padding:16px 18px;border-radius:16px;background:rgba(32,132,84,.28);border:1px solid var(--primary-300)}
+.inq-sum .eyebrow{margin:0}
+.inq-sum b{font-family:var(--display);font-size:1.35rem;font-weight:600}
+.inq-sum p{color:#d3e3da;font-size:.95rem}
+.inq-price{font-weight:600;color:var(--primary-300)}
+.inq-change{font-size:.85rem;color:#fff;text-decoration:underline;justify-self:start}
+#message{scroll-margin-top:110px}
+.inq-sum[hidden]{display:none!important}
+
+/* The tour form paints its own olive page color inside the frame. Crop it away so only the white form card shows on the site's green.
+   Measured in the frame: the card is 750px wide; olive sits 72px above and about 174px below it (6px above and 9px at the sides on phones). */
+#tk-main[data-exp="tour"] #book-frame{margin-top:-72px;margin-bottom:-174px;clip-path:inset(72px max(9px,calc((100% - 750px)/2)) 174px max(9px,calc((100% - 750px)/2)) round 14px)}
+@media(max-width:780px){#tk-main[data-exp="tour"] #book-frame{margin-top:-8px;margin-bottom:-174px;clip-path:inset(8px 9px 174px 9px round 12px)}}

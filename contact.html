@@ -45,12 +45,13 @@
       <a class="glass spot feat rv" href="mailto:shane@tasteofaustintours.com"><div class="ico"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></div><h3>Email</h3><p>shane@tasteofaustintours.com</p></a>
       <a class="glass spot feat rv" href="https://www.instagram.com/tasteofaustintours512" rel="noopener"><div class="ico"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Instagram</h3><p>@tasteofaustintours512</p></a>
     </div>
-    <div class="glass inquiry rv">
+    <div class="glass inquiry rv" id="message">
       <div><span class="eyebrow">Send a message</span><h2>How can we help?</h2><p style="color:var(--muted);margin-top:16px">Planning a corporate event? Use the <a href="corporate.html#inquiry" style="color:var(--primary-300)">quote form</a> instead.</p></div>
       <form id="contact-form">
+        <div class="inq-sum full" id="inq-sum" hidden><span class="eyebrow">Your inquiry</span><b id="inq-name"></b><p id="inq-desc"></p><span class="inq-price" id="inq-price"></span><a href="events.html" class="inq-change">Choose a different experience</a></div>
         <div class="field"><label for="cname">Your name</label><input id="cname" name="name" required autocomplete="name"></div>
         <div class="field"><label for="cemail">Email</label><input id="cemail" name="email" type="email" required autocomplete="email"></div>
-        <div class="field full"><label for="ctopic">Topic</label><select id="ctopic" name="topic"><option>Walking Food Tour</option><option>Dining Experience</option><option>Private group</option><option>Corporate event</option><option>Something else</option></select></div>
+        <div class="field full"><label for="ctopic">Topic</label><select id="ctopic" name="topic"><option>Walking Food Tour</option><option>Dining Experience</option><option>Corporate &amp; Team Events</option><option>Private Group Tour</option><option>Evening Progressive Dinner</option><option>Celebration Tables</option><option>Something else</option></select></div>
         <div class="field full"><label for="cmsg">Message</label><textarea id="cmsg" name="msg" required></textarea></div>
         <div class="full"><button class="btn btn-primary" type="submit">Send message →</button></div>
         <p class="ok full" role="status">Opening your email app with the details. Just hit send!</p>

@@ -1,7 +1,7 @@
 // Booking page: a full-screen takeover of the client's real Jotforms under the site navigation.
 // The page behind the form matches each form's own background so it reads as one surface.
 const EXP = {
-  tour:   { form: 'https://form.jotform.com/253066638302152', bg: '#403f2b', name: 'Walking Food Tour – Lunch' },
+  tour:   { form: 'https://form.jotform.com/253066638302152', bg: '#208454', name: 'Walking Food Tour – Lunch' },
   dining: { form: 'https://pci.jotform.com/form/253240857231150', bg: '#208454', name: 'Exclusive Dining Experience' }
 };
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];

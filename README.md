@@ -11,7 +11,8 @@ Static redesign of tasteofaustintours.com (no build step). Plain HTML, CSS and J
 Draft. `robots.txt` and the `noindex` meta tags keep it out of search engines.
 **Remove both before pointing the real domain at it.**
 
-## Hidden until added in Wix
-Only the two experiences in the client's Jotform are shown (Walking Food Tour – Lunch, Exclusive Dining Experience).
-These cards carry `data-wix="pending"` and are hidden: Corporate & Team Events, Private Group Tour, Evening Progressive Dinner, Celebration Tables, plus the 1:00 PM / 5:00 PM departure pills.
-Delete the attribute on a card to show it once its Wix service exists.
+## Booking
+Walking Food Tour – Lunch and Exclusive Dining Experience book through the client's Jotforms (full-screen on `book.html`).
+Corporate, Private Group Tour, Evening Progressive Dinner and Celebration Tables are inquiry-only until they exist in Wix.
+The 1:00 PM / 5:00 PM departure pills are removed because the Jotform does not offer those times yet.
+Anything tagged `data-wix="pending"` is hidden by `styles.css`; delete the attribute to show it.

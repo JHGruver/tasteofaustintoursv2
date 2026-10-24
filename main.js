@@ -109,14 +109,33 @@ if (mcta) {
 document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.classList.contains('on')));
 document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === c))));
 
-// Contact form: compose an email (no backend)
+// Contact form: compose an email (no backend). ?event=<name> shows that event as a summary and selects it as the topic.
+const EVENT_INFO = {
+  'Private Group Tour': ['Your own guide and your own pace. A private version of our walking tour for family reunions, friends and visiting groups.', 'Pricing on request'],
+  'Evening Progressive Dinner': ['Start with a cocktail and move through a few kitchens as the city lights up, ending with dessert and a toast.', 'Pricing on request'],
+  'Celebration Tables': ['Birthdays, anniversaries and bachelorette weekends: a hosted table for your people, with a menu we plan around the occasion.', 'Pricing on request'],
+  'Corporate & Team Events': ['Team offsites, client entertainment and holiday parties, built around your group size, budget and dietary needs.', '$250 per person, minimum 8 guests']
+};
 const cf = document.getElementById('contact-form');
-if (cf) cf.addEventListener('submit', e => {
-  e.preventDefault();
-  const d = Object.fromEntries(new FormData(cf));
-  document.querySelector('.ok').style.display = 'block';
-  location.href = `mailto:shane@tasteofaustintours.com?subject=${encodeURIComponent('Website inquiry – ' + d.topic)}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\n\n${d.msg}`)}`;
-});
+if (cf) {
+  const ev = new URLSearchParams(location.search).get('event');
+  if (ev && EVENT_INFO[ev]) {
+    cf.topic.value = ev;
+    document.getElementById('inq-name').textContent = ev;
+    document.getElementById('inq-desc').textContent = EVENT_INFO[ev][0];
+    document.getElementById('inq-price').textContent = EVENT_INFO[ev][1];
+    document.getElementById('inq-sum').hidden = false;
+    cf.msg.placeholder = 'Tell us your date, group size and anything we should know';
+  }
+  cf.addEventListener('submit', e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(cf));
+    document.querySelector('.ok').style.display = 'block';
+    const sub = `Website inquiry – ${d.topic}`;
+    const body = `Experience: ${d.topic}\nName: ${d.name}\nEmail: ${d.email}\n\n${d.msg}`;
+    location.href = `mailto:shane@tasteofaustintours.com?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+  });
+}
 
 // Hero: a 90-frame sequence of the clip is drawn on a canvas.
 // 1) Intro (home page load): the clip plays on its own for ~2.4s while the page fades in.  2) After that, scrolling continues the clip
