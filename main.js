@@ -132,7 +132,7 @@ document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () =
 // Contact form: compose an email (no backend). ?event=<name> shows that event as a summary and selects it as the topic.
 const EVENT_INFO = {
   'Private Group Tour': ['Your own guide and your own pace. A private version of our walking tour for family reunions, friends and visiting groups.', 'Pricing on request'],
-  'Corporate & Team Events': ['Team offsites, client entertainment and holiday parties, built around your group size, budget and dietary needs.', '$250 per person, minimum 8 guests']
+  'Corporate & Team Events': ['Team offsites, client entertainment and holiday parties, built around your group size, budget and dietary needs.', 'Pricing on request']
 };
 const cf = document.getElementById('contact-form');
 if (cf) {
@@ -143,6 +143,7 @@ if (cf) {
     document.getElementById('inq-desc').textContent = EVENT_INFO[ev][0];
     document.getElementById('inq-price').textContent = EVENT_INFO[ev][1];
     document.getElementById('inq-sum').hidden = false;
+    if (ev === 'Corporate & Team Events') document.getElementById('quote-note')?.setAttribute('hidden', '');
     cf.msg.placeholder = 'Tell us your date, group size and anything we should know';
   }
   cf.addEventListener('submit', e => {
