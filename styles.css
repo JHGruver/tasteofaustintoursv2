@@ -552,3 +552,19 @@ body.takeover .nav{position:fixed}
 
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .ok[data-state="err"]{background:rgba(214,170,60,.18);border-color:rgba(214,170,60,.6);color:#f3e6c0}
+
+/* policy pages */
+.legal-hero{padding:150px 0 28px}
+.legal-hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);max-width:18ch}
+.legal-hero .updated{color:var(--muted);margin-top:12px}
+.legal{padding:12px 0 96px}
+.legal-body{max-width:760px;line-height:1.75;color:#d8e6de}
+.legal-body h2{font-size:1.55rem;margin:2.2em 0 .5em;color:#fff}
+.legal-body h3{font-family:var(--font);font-size:1.02rem;font-weight:700;letter-spacing:0;margin:1.5em 0 .3em;color:var(--primary-300)}
+.legal-body p{margin:0 0 1em}
+.legal-body ul{margin:0 0 1.2em;padding-left:1.3em;display:grid;gap:.4em}
+.legal-body li::marker{color:var(--primary-300)}
+.legal-body a{color:var(--primary-300);text-decoration:underline;text-underline-offset:3px}
+.legal-body .addr{padding:16px 20px;border-left:3px solid var(--primary);background:var(--glass);border-radius:0 12px 12px 0}
+.legal-back{margin-top:2.5em!important;padding-top:1.2em;border-top:1px solid var(--glass-border);font-size:.95rem}
+@media(max-width:560px){.legal-hero{padding-top:120px}}
