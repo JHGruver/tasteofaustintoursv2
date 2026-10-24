@@ -568,3 +568,25 @@ body.takeover .nav{position:fixed}
 .legal-body .addr{padding:16px 20px;border-left:3px solid var(--primary);background:var(--glass);border-radius:0 12px 12px 0}
 .legal-back{margin-top:2.5em!important;padding-top:1.2em;border-top:1px solid var(--glass-border);font-size:.95rem}
 @media(max-width:560px){.legal-hero{padding-top:120px}}
+
+/* ---------- four events: three tiles, then one large tile below ---------- */
+.meta .times .tz{color:var(--muted);font-size:.78rem;margin-left:2px}
+@media(min-width:981px){
+  .event-grid>.event.wide{grid-column:1/-1;grid-row:auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-rows:none;row-gap:0}
+  .event.wide .pic{height:auto;min-height:340px}
+  .event.wide .pic img{height:100%}
+  .event.wide .body{display:flex;flex-direction:column;justify-content:center;gap:14px;padding:44px 48px;margin:0}
+  .event.wide .body>*{margin:0!important}
+  .event.wide h3{font-size:2.2rem}
+  .event.wide p{font-size:1.02rem;max-width:46ch}
+  .event.wide .foot{margin-top:8px;max-width:420px}
+}
+/* phones and small screens: the large tile condenses */
+@media(max-width:640px){
+  .event.wide .pic{height:120px}
+  .event.wide .body{padding:18px 20px 20px;gap:8px}
+  .event.wide .meta{display:none}
+  .event.wide h3{font-size:1.4rem}
+  .event.wide p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .event.wide .foot{padding-top:0}
+}

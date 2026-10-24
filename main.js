@@ -132,8 +132,6 @@ document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () =
 // Contact form: compose an email (no backend). ?event=<name> shows that event as a summary and selects it as the topic.
 const EVENT_INFO = {
   'Private Group Tour': ['Your own guide and your own pace. A private version of our walking tour for family reunions, friends and visiting groups.', 'Pricing on request'],
-  'Evening Progressive Dinner': ['Start with a cocktail and move through a few kitchens as the city lights up, ending with dessert and a toast.', 'Pricing on request'],
-  'Celebration Tables': ['Birthdays, anniversaries and bachelorette weekends: a hosted table for your people, with a menu we plan around the occasion.', 'Pricing on request'],
   'Corporate & Team Events': ['Team offsites, client entertainment and holiday parties, built around your group size, budget and dietary needs.', '$250 per person, minimum 8 guests']
 };
 const cf = document.getElementById('contact-form');
