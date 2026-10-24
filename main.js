@@ -68,7 +68,28 @@ if (form) {
   }));
 }
 
-// Corporate inquiry: no backend, so compose an email to the owner
+
+// Form delivery. With FORM_ENDPOINT empty, forms open the visitor's email app (works, but needs a mail client).
+// To deliver straight to Shane's inbox, set it to a form service endpoint, e.g.
+//   'https://formsubmit.co/ajax/shane@tasteofaustintours.com'  (Shane confirms the first message by email)
+// Messages then go through that service; on any failure the form falls back to the email app.
+const FORM_ENDPOINT = '';
+async function deliver(form, subject, body) {
+  const ok = form.querySelector('.ok'), btn = form.querySelector('button[type=submit]');
+  const mailto = `mailto:shane@tasteofaustintours.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const say = (t, err) => { ok.textContent = t; ok.style.display = 'block'; ok.dataset.state = err ? 'err' : 'ok'; };
+  if (!FORM_ENDPOINT) { say('Opening your email app with your message. Just press send.'); location.href = mailto; return; }
+  const label = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ _subject: subject, subject, message: body, ...Object.fromEntries(new FormData(form)) }) });
+    if (!r.ok) throw new Error(r.status);
+    form.reset(); say('Thank you. Your message was sent.');
+  } catch (_) { say('We could not send that automatically, so we are opening your email app instead.', true); location.href = mailto; }
+  finally { btn.disabled = false; btn.textContent = label; }
+}
+
+// Corporate inquiry
 const inq = document.getElementById('inquiry-form');
 if (inq) {
   const p = new URLSearchParams(location.search);
@@ -78,8 +99,7 @@ if (inq) {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(inq));
     const body = `Company: ${d.company}\nContact: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone || '-'}\nGuests: ${d.guests}\nPreferred date: ${d.date || 'flexible'}\nPackage: ${d.pkg}\n\n${d.notes || ''}`;
-    document.querySelector('.ok').style.display = 'block';
-    location.href = `mailto:shane@tasteofaustintours.com?subject=${encodeURIComponent('Corporate event inquiry – ' + d.company)}&body=${encodeURIComponent(body)}`;
+    deliver(inq, 'Corporate event inquiry – ' + d.company, body);
   });
 }
 
@@ -130,10 +150,9 @@ if (cf) {
   cf.addEventListener('submit', e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(cf));
-    document.querySelector('.ok').style.display = 'block';
     const sub = `Website inquiry – ${d.topic}`;
     const body = `Experience: ${d.topic}\nName: ${d.name}\nEmail: ${d.email}\n\n${d.msg}`;
-    location.href = `mailto:shane@tasteofaustintours.com?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+    deliver(cf, sub, body);
   });
 }
 

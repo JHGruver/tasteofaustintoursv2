@@ -549,3 +549,6 @@ body.takeover .nav{position:fixed}
 .nav .menu-btn{color:#fff}
 .nav .brand{color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.35)}
 @media(max-width:980px){.links{background:rgba(8,26,18,.97)!important}}
+
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ok[data-state="err"]{background:rgba(214,170,60,.18);border-color:rgba(214,170,60,.6);color:#f3e6c0}
