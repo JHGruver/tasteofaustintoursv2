@@ -7,9 +7,8 @@ Static redesign of tasteofaustintours.com (no build step). Plain HTML, CSS and J
 - Booking buttons link to the existing Wix booking pages; contact and quote forms open an email (no backend).
 - Previous version lives in `JHGruver/Tasteofaustintours`.
 
-## Preview status
-Draft. `robots.txt` and the `noindex` meta tags keep it out of search engines.
-**Remove both before pointing the real domain at it.**
+## Status
+Live at https://www.tasteofaustintours.com (served by GitHub Pages).
 
 ## Booking
 Walking Food Tour – Lunch and Exclusive Dining Experience book through the client's Jotforms (full-screen on `book.html`).
