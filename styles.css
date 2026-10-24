@@ -539,4 +539,13 @@ body.takeover .nav{position:fixed}
 /* The tour form paints its own olive page color inside the frame. Crop it away so only the white form card shows on the site's green.
    Measured in the frame: the card is 750px wide; olive sits 72px above and about 174px below it (6px above and 9px at the sides on phones). */
 #tk-main[data-exp="tour"] #book-frame{margin-top:-72px;margin-bottom:-174px;clip-path:inset(72px max(9px,calc((100% - 750px)/2)) 174px max(9px,calc((100% - 750px)/2)) round 14px)}
-@media(max-width:780px){#tk-main[data-exp="tour"] #book-frame{margin-top:-8px;margin-bottom:-174px;clip-path:inset(8px 9px 174px 9px round 12px)}}
+@media(max-width:780px){#tk-main[data-exp="tour"] #book-frame{margin-top:-8px;margin-bottom:0;clip-path:inset(8px 9px 0 9px round 12px 12px 0 0);
+  /* phones: a 9px olive strip sits between the white card and Jotform's 56px footer banner (measured from the frame bottom); mask only that strip */
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 67px),transparent calc(100% - 67px),transparent calc(100% - 56px),#000 calc(100% - 56px));mask-image:linear-gradient(to bottom,#000 calc(100% - 67px),transparent calc(100% - 67px),transparent calc(100% - 56px),#000 calc(100% - 56px))}}
+
+/* Navigation: dark-tinted glass so the white logo and links stay readable over any content, including the white booking form */
+.nav .nav-inner.glass{background:linear-gradient(180deg,rgba(8,26,18,.80),rgba(8,26,18,.68));border-color:rgba(255,255,255,.24);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);box-shadow:0 12px 40px -12px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.14)}
+.nav .links a{opacity:.92}
+.nav .menu-btn{color:#fff}
+.nav .brand{color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+@media(max-width:980px){.links{background:rgba(8,26,18,.97)!important}}

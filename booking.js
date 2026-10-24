@@ -22,7 +22,7 @@ if (frame) {
   addEventListener('message', e => {
     let host = ''; try { host = new URL(e.origin).hostname; } catch (_) {}
     if (typeof e.data !== 'string' || !/(^|\.)jotform\.com$/.test(host)) return;
-    const m = e.data.match(/^setHeight:(\d+)/); if (m) frame.style.height = (+m[1] + 24) + 'px';
+    const m = e.data.match(/^setHeight:(\d+)/); if (m) frame.style.height = (+m[1] + 24 + (innerWidth <= 780 ? 72 : 0)) + 'px';  // phones: Jotform pins a footer banner over the last 50px, so leave room for it below the Submit button
     if (/^scrollIntoView/.test(e.data)) stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $$('.tk-tab').forEach(t => t.addEventListener('click', () => pick(t.dataset.exp, true)));
