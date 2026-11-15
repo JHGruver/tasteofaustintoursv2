@@ -41,7 +41,7 @@ links?.addEventListener('click', e => { if (e.target.tagName === 'A') links.clas
 // Booking bar: price + hand-off to the existing checkout pages
 const BASE = 'https://www.tasteofaustintours.com';
 const EXPERIENCES = {
-  tour:   { price: 106, url: BASE + '/book-tour-1' },
+  tour:   { price: 98, taxExtra: true, url: BASE + '/book-tour-1' },
   dining: { price: 119, url: BASE + '/copy-of-book-tour' },
   corporate: { price: 250, inquiry: true, url: 'corporate.html#inquiry' }
 };
@@ -53,7 +53,7 @@ if (form) {
   const money = n => '$' + n.toLocaleString();
   function update() {
     const x = EXPERIENCES[sel.value], g = +guests.value || 1;
-    if (x.price) { total.textContent = money(x.price * g); label.textContent = `${g} guest${g > 1 ? 's' : ''} × ${money(x.price)} ${x.inquiry ? '· groups of 8–60, confirmed by email' : '· tax included'}`; }
+    if (x.price) { total.textContent = money(x.price * g); label.textContent = `${g} guest${g > 1 ? 's' : ''} × ${money(x.price)} ${x.inquiry ? '· groups of 8–60, confirmed by email' : (x.taxExtra ? '· tax not included' : '· tax included')}`; }
   }
   form.addEventListener('input', update); update();
   form.addEventListener('submit', e => {
