@@ -42,7 +42,7 @@ links?.addEventListener('click', e => { if (e.target.tagName === 'A') links.clas
 const BASE = 'https://www.tasteofaustintours.com';
 const EXPERIENCES = {
   tour:   { price: 98, taxExtra: true, url: BASE + '/book-tour-1' },
-  dining: { price: 119, url: BASE + '/copy-of-book-tour' },
+  dining: { price: 125, taxExtra: true, url: BASE + '/copy-of-book-tour' },
   corporate: { price: 250, inquiry: true, url: 'corporate.html#inquiry' }
 };
 const form = document.getElementById('book');
